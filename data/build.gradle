@@ -35,6 +35,8 @@ dependencies {
 
 	implementation "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
 
+	implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
 	implementation "androidx.core:core-ktx:$axCoreVersion"
 	androidTestImplementation "androidx.test.ext:junit:$testExtJunitVersion"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$testEspressoVersion"

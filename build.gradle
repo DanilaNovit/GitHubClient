@@ -10,6 +10,8 @@ ext {
 	rxKotlinVersion = '3.0.1'       /* https://github.com/ReactiveX/RxKotlin/releases */
 	rxAndroidVersion = '3.0.0'      /* https://github.com/ReactiveX/RxAndroid/releases */
 
+	retrofitVersion = '2.9.0'       /* https://github.com/square/retrofit/tags */
+
 	/* AndroidX https://developer.android.com/jetpack/androidx/versions */
 	axCoreVersion = '1.9.0'
 	axAppcompatVersion = '1.5.1'
