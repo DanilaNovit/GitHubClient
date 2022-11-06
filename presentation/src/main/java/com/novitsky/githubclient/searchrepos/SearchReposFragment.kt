@@ -9,7 +9,8 @@ import com.novitsky.githubclient.databinding.FragmentSearchReposBinding
 
 class SearchReposFragment : BaseFragment() {
 
-	override val presenter = SearchReposPresenter()
+	override fun onCreatePresenter() = SearchReposPresenter(dependencyProvider.reposManager)
+
 	private lateinit var binding: FragmentSearchReposBinding
 
 	override fun onCreateView(

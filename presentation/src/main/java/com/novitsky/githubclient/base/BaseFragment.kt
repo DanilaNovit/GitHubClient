@@ -8,15 +8,19 @@ import androidx.lifecycle.LifecycleRegistry
 
 abstract class BaseFragment : Fragment(), LifecycleOwner {
 
-	abstract val presenter: BasePresenter
+	private var _presenter: BasePresenter? = null
 	private lateinit var lifecycleRegistry: LifecycleRegistry
 
 	val dependencyProvider
 		get() = requireBaseActivity().dependencyProvider
 
+	val presenter
+		get() = _presenter ?: throw NullPointerException("The presenter hasn't init yet")
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
+		_presenter = onCreatePresenter()
 
 		lifecycleRegistry = LifecycleRegistry(this)
 		lifecycleRegistry.addObserver(presenter)
@@ -40,11 +44,14 @@ abstract class BaseFragment : Fragment(), LifecycleOwner {
 	}
 
 
+	abstract fun onCreatePresenter(): BasePresenter
+
+
 	private fun setCurrentState(state: Lifecycle.State) {
 		lifecycleRegistry.currentState = state
 	}
 
 	private fun requireBaseActivity(): RootActivity {
-		return (activity as RootActivity?) ?: throw IllegalStateException("Activity isn't attached to \$this fragment.")
+		return (activity as RootActivity?) ?: throw IllegalStateException("Activity isn't attached to $this fragment.")
 	}
 }

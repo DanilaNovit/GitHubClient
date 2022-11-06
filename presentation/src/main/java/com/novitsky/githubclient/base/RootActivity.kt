@@ -8,7 +8,7 @@ class RootActivity : AppCompatActivity() {
 	private var _dependencyProvider: DependencyProvider? = null
 
 	val dependencyProvider
-		get() = _dependencyProvider?: throw NullPointerException("Dependency provider haven't init yet")
+		get() = _dependencyProvider?: throw NullPointerException("Dependency provider hasn't init yet")
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
